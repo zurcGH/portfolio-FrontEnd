@@ -2,7 +2,43 @@ div{
     background-color: #a1b5cb;
 }
 
-app-social{
-    float: right;
-    margin-top: 25px;
+.part1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img{
+    width:150px;
+}
+
+.social{
+    margin-right: 15px;
+}
+.social img{
+    width: 50px;
+    margin-left: 5px;
+}
+
+.btn{
+    margin-left: 15px;
+    border-width: revert;
+}
+
+.banner img{
+    width: 100%;
+    height: auto;
+}
+
+/*Phone*/
+@media (max-width: 575px) {
+    .part1{
+        flex-direction: column;
+    }
+    .social{
+        margin-right: 0px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
 }
