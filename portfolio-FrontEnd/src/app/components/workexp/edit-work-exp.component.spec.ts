@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkexpComponent } from './workexp.component';
+import { EditWorkExpComponent } from './edit-work-exp.component';
 
-describe('WorkexpComponent', () => {
-  let component: WorkexpComponent;
-  let fixture: ComponentFixture<WorkexpComponent>;
+describe('EditWorkExpComponent', () => {
+  let component: EditWorkExpComponent;
+  let fixture: ComponentFixture<EditWorkExpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkexpComponent ]
+      declarations: [ EditWorkExpComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WorkexpComponent);
+    fixture = TestBed.createComponent(EditWorkExpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

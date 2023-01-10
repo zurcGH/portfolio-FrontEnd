@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="workName">WorkName</label>
+                    <input type="text" class="form-control" id="workName" name="workName" [(ngModel)]="workName" required>
+                </div>
+                <div class="form-group">
+                    <label for="workInfo">WorkInfo</label>
+                    <input type="text" class="form-control" id="workInfo" name="workInfo" [(ngModel)]="workInfo" required>
+                </div>
+                <button class="btn btn-light">
+                    AddWorkExp
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

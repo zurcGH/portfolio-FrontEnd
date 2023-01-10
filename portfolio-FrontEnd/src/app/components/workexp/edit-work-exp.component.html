@@ -1,0 +1,19 @@
+<div class="container" *ngIf="workExp">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="workName">WorkName</label>
+                    <input type="text" class="form-control" id="workName" name="workName" [(ngModel)]="workExp.workName" required>
+                </div>
+                <div class="form-group">
+                    <label for="workInfo">WorkInfo</label>
+                    <input type="text" class="form-control" id="workInfo" name="workInfo" [(ngModel)]="workExp.workInfo" required>
+                </div>
+                <button class="btn btn-light">
+                    UpdateWorkExp
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
