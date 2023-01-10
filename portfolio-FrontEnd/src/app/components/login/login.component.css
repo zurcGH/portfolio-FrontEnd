@@ -1,0 +1,6 @@
+input {
+  background: rgb(33, 37, 41) !important;
+  color: white !important;  
+  outline-width: 1px !important;
+  outline-style: solid;
+}
