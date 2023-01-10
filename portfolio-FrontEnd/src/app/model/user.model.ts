@@ -1,5 +1,5 @@
 export class user{
-    id?: Number;
+    id?: number;
     name: String;
     lastName: String;
     img: String;

@@ -4,6 +4,7 @@ import com.portfolio.ag.Entity.User;
 import com.portfolio.ag.Interface.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,18 +30,21 @@ public class UserController {
         return iuserService.findUser((long)3);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/users/create")
     public String createUser(@RequestBody User user) {
         iuserService.saveUser(user);
         return "User created succesfully";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         iuserService.deleteUser(id);
         return "User deleted succesfully";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/users/edit/{id}")
     public User editUser(@PathVariable Long id, 
                          @RequestParam("name") String newName,
