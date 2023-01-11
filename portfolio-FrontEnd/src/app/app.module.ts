@@ -18,6 +18,11 @@ import { LoginComponent } from './components/login/login.component'
 import { interceptorProvider } from './service/interceptor-service';
 import { NewWorkExpComponent } from './components/workexp/new-work-exp.component';
 import { EditWorkExpComponent } from './components/workexp/edit-work-exp.component';
+import { NewStudyComponent } from './components/studies/new-study.component';
+import { EditStudyComponent } from './components/studies/edit-study.component';
+import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditSkillComponent } from './components/skills/edit-skill.component';
+import { EditAboutComponent } from './components/about/edit-about.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { EditWorkExpComponent } from './components/workexp/edit-work-exp.compone
     HomeComponent,
     LoginComponent,
     NewWorkExpComponent,
-    EditWorkExpComponent
+    EditWorkExpComponent,
+    NewStudyComponent,
+    EditStudyComponent,
+    NewSkillComponent,
+    EditSkillComponent,
+    EditAboutComponent
   ],
   imports: [
     BrowserModule,

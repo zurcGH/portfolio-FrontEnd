@@ -15,8 +15,8 @@ export class WorkExpService {
         return this.httpClient.get<WorkExp[]>(this.workExpURL + 'list');
     }
 
-    public detail(id: number):Observable<WorkExp>{
-        return this.httpClient.get<WorkExp>(this.workExpURL + `detail/${id}`);
+    public details(id: number):Observable<WorkExp>{
+        return this.httpClient.get<WorkExp>(this.workExpURL + `details/${id}`);
     }
 
     public save(workExp: WorkExp): Observable<any>{

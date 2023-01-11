@@ -15,7 +15,7 @@ export class EditWorkExpComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.workExpService.detail(id).subscribe(
+    this.workExpService.details(id).subscribe(
       data => {
         this.workExp = data;
       }, err => {

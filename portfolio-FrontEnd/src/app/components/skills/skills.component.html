@@ -1,101 +1,44 @@
 <div class="container">
     <div class="row">
-        <h1>Hard and Soft Skills</h1>
-        <!--html--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/html.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
+        <h1>Skills</h1>
+
+        <div class="col-lg-2">
+            <button type="button" routerLink="/newSkill" class="btn btn-light" *ngIf="isLogged">
+                NewSkill
+            </button>
         </div>
-        <!--css--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/css.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
-        </div>
-        <!--js--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/js.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
-        </div>
-        <!--github--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/github.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
-        </div>
-        <!--english--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/english.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
-        </div>
-        <!--team--><div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-                [percent]="85"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-                [showImage]="true"
-                [imageSrc]="'../assets/skills/team.png'"
-                [imageHeight]="70"
-                [imageWidth]="70"
-            ></circle-progress>
+    
+        <div class="text-center col-sm-4 col-md-4 col-lg-4" *ngFor="let Skills of skills">
+            <circle-progress 
+            [percent]="(Skills.percentage)"
+            [radius]="90"
+            [imageSrc]="''"
+            [title]="(Skills.skill)"
+            [titleColor]="'#212F3C'"
+            [showTitle]="true" 
+            [showImage]="false" 
+            [imageHeight]="70" 
+            [imageWidth]="70" 
+            [showUnits]="false"
+            [showSubtitle]="false" 
+            [outerStrokeWidth]="16" 
+            [innerStrokeWidth]="2" 
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'" 
+            [animation]="true" 
+            [animationDuration]="600">
+            </circle-progress>
+    
+            <div>
+                <td *ngIf="isLogged">
+                    <button class="btn btn-light" routerLink="/editSkill/{{Skills.id}}">
+                        <i class="bi bi-pencil-fill"></i></button>
+                </td>
+                <td *ngIf="isLogged">
+                    <button class="btn btn-danger" (click)="deleteSkill(Skills.id)">
+                        <i class="bi bi-trash-fill"></i></button>
+                </td>
+            </div>
         </div>
     </div>
 </div>

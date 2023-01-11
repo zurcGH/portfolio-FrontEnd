@@ -32,7 +32,7 @@ public class WorkExpController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
-    @GetMapping("/detail/{id}")
+    @GetMapping("/details/{id}")
     public ResponseEntity<WorkExp> getById(@PathVariable("id") int id){
         if(!workExpService.existsById(id))
             return new ResponseEntity(new Message("WorkExp doesn't exist"), HttpStatus.NOT_FOUND);

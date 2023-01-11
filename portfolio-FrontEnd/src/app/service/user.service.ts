@@ -7,10 +7,26 @@ import { user } from '../model/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  URL = 'http://localhost:8080/users/';
-  constructor(private http: HttpClient) { }
+  userURL = 'http://localhost:8080/users/';
+  constructor(private httpClient: HttpClient) { }
 
-  public getUser(): Observable<user>{
-    return this.http.get<user>(this.URL + 'get/profile')
-  }
+  public list(): Observable<user[]>{
+    return this.httpClient.get<user[]>(this.userURL + 'list');
+}
+
+public details(id: number):Observable<user>{
+    return this.httpClient.get<user>(this.userURL + `details/${id}`);
+}
+
+/*public save(User: user): Observable<any>{
+    return this.httpClient.post<any>(this.userURL + `create`, User);
+}*/
+
+public update(id: number, User: user): Observable<any>{
+    return this.httpClient.put<any>(this.userURL + `update/${id}`, User);
+}
+
+/*public delete(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.userURL + `delete/${id}`);
+}*/
 }

@@ -1,22 +1,33 @@
 <div class="container">
     <div class="row">
         <h1>Studies</h1>
-        <div class="col-lg-1"></div>
+
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-light" routerLink="/newStudy" *ngIf="isLogged">
+                NewStudy
+            </button>
+        </div>
+
+        <div class="col lg 1"></div>
         <div class="col-lg-11">
-            <ul>
-                <li>
-                    <h1>Study 1</h1> - <h3>years</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus blanditiis eligendi optio. Molestiae distinctio dolorem fugiat eaque architecto consequatur vero, officia eos ratione accusantium fuga provident ad. Saepe, quos eligendi!</p>
-                </li>
-                <li>
-                    <h1>Study 2</h1> - <h3>years</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus blanditiis eligendi optio. Molestiae distinctio dolorem fugiat eaque architecto consequatur vero, officia eos ratione accusantium fuga provident ad. Saepe, quos eligendi!</p>
-                </li>
-                <li>
-                    <h1>Study 3</h1> - <h3>years</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus blanditiis eligendi optio. Molestiae distinctio dolorem fugiat eaque architecto consequatur vero, officia eos ratione accusantium fuga provident ad. Saepe, quos eligendi!</p>
-                </li>
-            </ul>
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let Studies of studies">
+                        <td><h2>{{Studies.studyName}}</h2></td>
+                        <td>{{Studies.studyInfo}}</td>
+                        <td *ngIf="isLogged">
+                            <button class="btn btn-light" routerLink="/editStudies/{{Studies.id}}">
+                                <i class="bi bi-pencil-square"></i>StudiesEdit
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteStudy(Studies.id)">
+                                <i class="bi bi-trash3"></i>StudiesDelete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
