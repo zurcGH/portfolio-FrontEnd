@@ -3,25 +3,28 @@
         <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="name">StudyName</label>
+                    <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">StudyInfo</label>
+                    <label for="lastName">LastName</label>
                     <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
                 </div>
                 <div class="form-group">
-                    <label for="about">StudyInfo</label>
+                    <label for="about">About</label>
                     <input type="text" class="form-control" id="about" name="about" [(ngModel)]="user.about" required>
                 </div>
                 <div class="form-group">
-                    <label for="img">StudyInfo</label>
+                    <label for="img">Img</label>
                     <input type="file" class="form-control" id="img" name="img" [(ngModel)]="user.img" required (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                </div>
+                <div class="img">
+                    <img [src]="imageService.url" width="200px">
                 </div>
 
                 <br>
                 <button class="btn btn-light">
-                    UpdateStudies
+                    UpdateAbout
                 </button>
             </form>
         </div>

@@ -1,13 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 import { WorkExp } from "../model/work-exp";
 
 @Injectable ({
     providedIn: 'root'
 })
 export class WorkExpService {
-    workExpURL = 'http://localhost:8080/workexp/'
+    //workExpURL = 'http://localhost:8080/workexp/';
+    workExpURL = environment.URL + '/workexp/';
 
     constructor(private httpClient: HttpClient) { }
 
