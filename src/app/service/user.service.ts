@@ -8,7 +8,6 @@ import { user } from '../model/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  //userURL = 'http://localhost:8080/users/';
   userURL = environment.URL + '/users/';
   
   constructor(private httpClient: HttpClient) { }

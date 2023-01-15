@@ -9,6 +9,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class HeaderComponent implements OnInit{
   isLogged = false;
+  isAdmin = false;
 
   constructor(private router: Router, private tokenService: TokenService){}
   
@@ -17,6 +18,11 @@ export class HeaderComponent implements OnInit{
       this.isLogged = true;
     } else {
       this.isLogged = false;
+    }
+    if(this.tokenService.getAuthorities().length == 2) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
     }
   }
 

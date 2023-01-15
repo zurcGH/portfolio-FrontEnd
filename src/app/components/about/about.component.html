@@ -1,25 +1,20 @@
-<div class="container">
-    <div class="row">
-
-        <div class="col-lg-10"></div>
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-light" routerLink="/editAbout/3" *ngIf="isLogged">
-                EditAbout
-            </button>
+<div class="container-fluid">
+    <div class="row aboutContainer" *ngIf="user">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 imgContainer">
+            <img src={{user.img}} alt="pfp" class="img-fluid">
         </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-            <img src={{user.img}} class="img-fluid" id="pfp">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 offset-sm-0 offset-md-0 offset-lg-0 name">
+            <div>
+                <h2 id="nombre">{{user.name}} {{user.lastName}}</h2>
+                <p>Full-Stack Developer Jr</p>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-            <p id="name">{{user.name}} {{user.lastName}}</p>
-            <p>Full Stack Developer Jr</p>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 about">
-            <span>
-                <h1>About me</h1>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 offset-sm-0 offset-md-0 offset-lg-0 about">
+            <div class="aboutme">
+                <h2>About Me</h2>
                 <p>{{user.about}}</p>
-            </span>
+            </div>
+            <button type="button" class="btn btn-light" routerLink="/editAbout/1" *ngIf="isAdmin"><i class="bi bi-pencil-square"></i></button>
         </div>
     </div>
 </div>

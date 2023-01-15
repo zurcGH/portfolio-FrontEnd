@@ -1,18 +1,32 @@
-<div class="container" *ngIf="skills">
-    <div class="row">
-        <div>
+<div class="container-fluid">
+    <div class="row" *ngIf="skills">        
+        <div class="title">
+            <h1>Edit Skill</h1>
+        </div>
+        <div class="skills">
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="skill">Skill</label>
+                    <label for="skill"><b>Skill Name</b></label>
                     <input type="text" class="form-control" id="skill" name="skill" [(ngModel)]="skills.skill" required>
                 </div>
                 <div class="form-group">
-                    <label for="percentage">Percentage</label>
-                    <input type="text" class="form-control" id="percentage" name="percentage" [(ngModel)]="skills.percentage" required>
+                    <label for="percentage"><b>Percentage</b></label>
+                    <input type="number" class="form-control" id="percentage" name="percentage" [(ngModel)]="skills.percentage" required>
                 </div>
-                <button class="btn btn-primary">
-                    UpdateSkills
-                </button>
+                <div class="form-group">
+                    <label for="skillImg"><b>Skill Image</b></label>
+                    <input type="file" class="form-control" id="skillImg" name="skillImg" (ngModel)="skills.skillImg" (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                </div>
+            <br>
+                <div>
+                    <img [src]="skills.skillImg" width="200px" alt="Skill Image" *ngIf='skillsImageService.url == ""'>
+                    <img [src]="skillsImageService.url" width="200px" alt="Skill Image" *ngIf='skillsImageService.url != ""'>
+                </div>
+            <br>
+                <div>
+                    <button class="btn btn-light">Save</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
             </form>
         </div>
     </div>

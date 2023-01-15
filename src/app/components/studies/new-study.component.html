@@ -1,18 +1,35 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div>
+        <div class="title">
+            <h1>New Study</h1>
+        </div>
+        <div class="studies">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="studyName">StudyName</label>
+                    <label for="studyName"><b>Study Name</b></label>
                     <input type="text" class="form-control" id="studyName" name="studyName" [(ngModel)]="studyName" required>
                 </div>
                 <div class="form-group">
-                    <label for="studyInfo">StudyInfo</label>
-                    <input type="text" class="form-control" id="studyInfo" name="studyInfo" [(ngModel)]="studyInfo" required>
+                    <label for="studyInfo"><b>Study Info</b></label>
+                    <textarea type="text" class="form-control" id="studyInfo" name="studyInfo" [(ngModel)]="studyInfo" required></textarea>
                 </div>
-                <button class="btn btn-light">
-                    AddStudies
-                </button>
+                <div class="form-group col-sm-12 col-md-6 col-lg-6 dateinit">
+                    <label for="studyDate"><b>Study Date</b></label>
+                    <input type="text" class="form-control" id="studyDate" name="studyDate" [(ngModel)]="studyDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="studyImg"><b>Study Image</b></label>
+                    <input type="file" class="form-control" id="studyImg" name="studyImg" (ngModel)="studyImg" (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                </div>
+            <br>
+                <div>
+                    <img [src]="studiesImageService.url" width="200px" alt="Study Image" *ngIf='studiesImageService.url != ""'>
+                </div>
+            <br>
+                <div>
+                    <button class="btn btn-light">Add</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
             </form>
         </div>
     </div>

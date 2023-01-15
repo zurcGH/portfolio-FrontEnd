@@ -11,6 +11,7 @@ import { TokenService } from 'src/app/service/token.service';
 export class AboutComponent implements OnInit {
   user: user = null;
   isLogged = false;
+  isAdmin = false;
 
   constructor(public userService: UserService, public tokenService: TokenService){}
 
@@ -21,9 +22,14 @@ export class AboutComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    if(this.tokenService.getAuthorities().length == 2) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   addUser(){
-    this.userService.details(3).subscribe(data => {this.user = data;})
+    this.userService.details(1).subscribe(data => {this.user = data;})
   }
 }

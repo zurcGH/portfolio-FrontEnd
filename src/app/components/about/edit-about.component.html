@@ -1,31 +1,36 @@
-<div class="container" *ngIf="user">
-    <div class="row">
-        <div>
+<div class="container-fluid" *ngIf="User">
+    <div class="row" *ngIf="isAdmin == true">        
+        <div class="title">
+            <h1>Edit About Me</h1>
+        </div>
+        <div class="about">
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="User.name" required>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">LastName</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+                    <label for="lastName"><b>Last Name</b></label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="User.lastName" required>
                 </div>
                 <div class="form-group">
-                    <label for="about">About</label>
-                    <input type="text" class="form-control" id="about" name="about" [(ngModel)]="user.about" required>
+                    <label for="about"><b>About Me</b></label>
+                    <textarea type="text" class="form-control" id="about" name="about" [(ngModel)]="User.about" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="img">Img</label>
-                    <input type="file" class="form-control" id="img" name="img" [(ngModel)]="user.img" required (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                    <label for="img"><b>Image</b></label>
+                    <input type="file" class="form-control" id="img" name="img" (ngModel)="User.img" (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
                 </div>
+            <br>
                 <div class="img">
-                    <img [src]="imageService.url" width="200px">
+                    <img [src]="User.img" width="200px" alt="img" *ngIf='imageService.url == ""'>
+                    <img [src]="imageService.url" width="200px" alt="img" *ngIf='imageService.url != ""'>
                 </div>
-
-                <br>
-                <button class="btn btn-light">
-                    UpdateAbout
-                </button>
+            <br>
+                <div>
+                    <button class="btn btn-light">Save</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
             </form>
         </div>
     </div>

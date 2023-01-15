@@ -1,15 +1,184 @@
-h1{
+h1 {
+    display: inline-block;
+    background-color: #4b3e62;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    /*box-shadow:  5px 5px 5px black;*/
+}
+
+h2 {
+    display: inline;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.title {
+    padding: 0;
+    margin: auto;
+    max-width: 95%;
+    margin-top: 20px;
+}
+
+.newWorkExp {
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.row{
-    padding: 20px;
+.workExp {
+    padding: 30px;
+    background-color: #4b3e62;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    /*box-shadow:  5px 5px 5px black;*/
+    margin: auto;
+    max-width: 95%;
 }
 
-div{
-background-color: #a1b5cb;
+.workExpContainter {
+    background-color: #a3a1cb;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
 }
 
-h1, h3{
-    display: inline;
+.workName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workInfo {
+    word-break: break-word;
+    max-width: 475px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.img-fluid {
+    background-color: black;
+    height: 75%;
+    margin-top: 20%;
+}
+
+
+.editDeleteButtons {
+    height: 3em;
+    width: 3em;
+    margin: 0.5em;
+}
+
+.editDeleteButtons .btn-light {
+    margin-right: 15px;
+}
+
+.bi-pencil-square {
+    font-size: 21.5px;
+}
+
+.bi-trash3 {
+    font-size: 21.5px;
+}
+
+@media (max-width: 1920px) {
+    .workName {
+        margin-left: -65px;
+    }
+
+    .workInfo {
+        max-width: 615px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .workName {
+        margin-left: -30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .title{
+        max-width: 96.5%;
+    }
+
+    .workExp {
+        padding: 5px;
+        max-width: 96.5%;
+    }
+    
+    .workName {
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title{
+        max-width: 96.5%;
+    }
+
+    .workExp {
+        padding: 5px;
+        max-width: 96.5%;
+    }
+
+    .workExpContainter {
+        margin: 1em;
+        padding: 0.75em;
+    }
+
+}
+
+@media (max-width: 575px) {
+    .newWorkExp {
+        margin-top: 1em;
+    }
+
+    .title{
+        max-width: 98%;
+    }
+
+    .workExp {
+        padding: 20px;
+        max-width: 98%;
+    }
+
+    .workExpContainter {
+        margin-left: 0em;
+        margin-right: 0em;
+        padding: 1em;
+        text-align: center;
+        display: block;
+        margin-top: 0;
+    }
+
+    p {
+        margin-top: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .img-fluid {
+        margin-top: 10px;
+    }
 }

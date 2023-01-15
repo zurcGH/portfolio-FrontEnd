@@ -1,0 +1,26 @@
+.row {
+    background-color: #a3a1cb;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+@media (min-width:426px) and (max-width:768px) {
+    .row {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width:375px) and (max-width:425px) {
+    .row {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+@media (max-width:374px) {
+    .row {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

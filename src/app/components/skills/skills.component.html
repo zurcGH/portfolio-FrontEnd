@@ -1,43 +1,48 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <h1>Skills</h1>
-
-        <div class="col-lg-2">
-            <button type="button" routerLink="/newSkill" class="btn btn-light" *ngIf="isLogged">
-                NewSkill
-            </button>
+        <div class="title">
+            <h1>Hard & Soft Skills</h1>
         </div>
-    
-        <div class="text-center col-sm-4 col-md-4 col-lg-4" *ngFor="let Skills of skills">
-            <circle-progress 
-            [percent]="(Skills.percentage)"
-            [radius]="90"
-            [imageSrc]="''"
-            [title]="(Skills.skill)"
-            [titleColor]="'#212F3C'"
-            [showTitle]="true" 
-            [showImage]="false" 
-            [imageHeight]="70" 
-            [imageWidth]="70" 
-            [showUnits]="false"
-            [showSubtitle]="false" 
-            [outerStrokeWidth]="16" 
-            [innerStrokeWidth]="2" 
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'" 
-            [animation]="true" 
-            [animationDuration]="600">
-            </circle-progress>
-    
-            <div>
-                <td *ngIf="isLogged">
-                    <button class="btn btn-light" routerLink="/editSkill/{{Skills.id}}">
-                        <i class="bi bi-pencil-fill"></i></button>
-                </td>
-                <td *ngIf="isLogged">
-                    <button class="btn btn-danger" (click)="deleteSkill(Skills.id)">
-                        <i class="bi bi-trash-fill"></i></button>
-                </td>
+        <div class="skills">
+            <div class="col-lg-12 newSkill">
+                <button type="button" class="btn btn-light" routerLink="/newSkill" *ngIf="isAdmin">
+                    Add Skill
+                </button>
+            </div>
+            <div class="skillsContainer">
+                <div class="skillsContent" *ngFor="let Skills of skills">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 circleProgress">
+                        <div>
+                            <h4>{{Skills.skill}}</h4>
+                        </div>
+                        <circle-progress
+                            [percent]="(Skills.percentage)"
+                            [radius]="100"
+                            [imageSrc]="(Skills.skillImg)"
+                            [imageHeight]="75"
+                            [imageWidth]="75"
+                            [showImage]="true"
+                            [responsive]="true"
+                            [showTitle]="false"
+                            [showUnits]="false"
+                            [showSubtitle]="false"
+                            [outerStrokeWidth]="16"
+                            [innerStrokeWidth]="8"
+                            [outerStrokeColor]="'#a670e7'"
+                            [innerStrokeColor]="'#4b3e62'"
+                            [animation]="true"
+                            [animationDuration]="500"
+                            [startFromZero]="true"
+                            [showBackground]="true"
+                            [backgroundColor]="'#a3a1cb'"
+                            [space]="5"
+                        ></circle-progress>
+                        <div class="editDeleteButtons" *ngIf="isAdmin">
+                            <button class="btn btn-light" routerLink="/editSkill/{{Skills.id}}"><i class="bi bi-pencil-square"></i></button>
+                            <button class="btn btn-danger" (click)="deleteSkill(Skills.id)"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

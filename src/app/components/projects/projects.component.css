@@ -1,21 +1,168 @@
-h1{
+h1 {
+    display: inline-block;
+    background-color: #4b3e62;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    /*box-shadow:  5px 5px 5px black;*/
+}
+
+h3 {
+    margin-bottom: 0px;
+}
+
+h6 {
+    margin-bottom: 00px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.title {
+    padding: 0;
+    margin: auto;
+    max-width: 95%;
+    margin-top: 20px;
+}
+
+.newProject {
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.row{
-    background-color: #a1b5cb;
-    padding: 20px;
+.projectsContainer {
+    padding: 60px;
+    background-color: #4b3e62;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    /*box-shadow:  5px 5px 5px black;*/
+    margin: auto;
+    max-width: 95%;
+    margin-bottom: 25px;
 }
 
-.projects{
-    width: auto;
+.projects {
+    min-width: 100%;
+    background-color: #a3a1cb;
+    padding: 2em;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.part1, .part2{
+.projectsPart1 { 
     display: inline-block;
-    text-align: justify;
+    text-align: center;
+    word-break: break-word;
+    max-width: 600px;
 }
 
-.image {
-    box-shadow: 10px 10px 30px #000000;
+.projectsPart2 {
+    display: inline-block;
+    padding: 10px 20px 20px 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.projectImg {
+    box-shadow: 10px 10px 30px #000;
+}
+
+.editDeleteButtons {
+    height: 3em;
+    width: 3em;
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.editDeleteButtons .btn-light {
+    margin-right: 15px;
+}
+
+.bi-pencil-square {
+    font-size: 21.5px;
+}
+
+.bi-trash3 {
+    font-size: 21.5px;
+}
+
+@media (max-width: 1440px) {
+    .projectsContainer {
+        padding: 60px;
+    }
+
+    .projectsPart1 { 
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projectsContainer {
+        padding: 40px;
+    }
+
+    .projectsPart2 {
+        width: 275px;
+    }
+
+    .projectsPart1 { 
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projectsContainer {
+        padding: 20px;
+    }
+
+    .projectsPart2 {
+        width: 225px;
+    }
+
+    .projectsPart1 { 
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 575px) {
+    .projects {
+        flex-direction: column;
+    }
+    .projectsContainer {
+        padding: 1em;
+        text-align: center;
+    }
+
+    .projectsPart2 {
+        width: 300px;
+    }
+    
+    .projectsPart1 {
+        max-width: 275px;
+    }
+
+    .editDeleteButtons {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 375px) {
+    .projectsPart2 {
+        width: 275px;
+    }
+}
+
+@media (max-width: 320px) {
+    .projectsPart2 {
+        width: 225px;
+    }
 }

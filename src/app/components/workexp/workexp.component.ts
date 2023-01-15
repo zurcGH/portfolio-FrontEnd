@@ -10,10 +10,10 @@ import { WorkExpService } from 'src/app/service/work-exp.service';
 })
 export class WorkexpComponent implements OnInit {
   workExp: WorkExp[] = [];
+  isLogged = false;
+  isAdmin = false;
 
   constructor(private workExpService: WorkExpService, private tokenService: TokenService) { }
-
-  isLogged = false;
 
   ngOnInit(): void {
     this.addWorkExp();
@@ -22,6 +22,11 @@ export class WorkexpComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    if(this.tokenService.getAuthorities().length == 2) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   addWorkExp(): void {
@@ -29,14 +34,17 @@ export class WorkexpComponent implements OnInit {
   }
   
   deleteWorkExp(id?: number){
-    if(id != undefined){
-      this.workExpService.delete(id).subscribe(
-        data => {
-          this.addWorkExp();
-        }, err => {
-          alert("Couldn't delete WorkExp");
-        }
-      )
+    const response = confirm ("Are you sure u want to delete this work experience?");
+    if (response == true) {
+      if(id != undefined){
+        this.workExpService.delete(id).subscribe(
+          data => {
+            this.addWorkExp();
+          }, err => {
+            alert("Couldn't delete WorkExp");
+          }
+        );
+      }
     }
   }
 }

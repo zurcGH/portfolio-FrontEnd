@@ -1,12 +1,12 @@
-.row{
-    background-color: #a1b5cb;
-    padding: 20px;
+.row {
+    background-color: #4b3e62;
 }
-footer{
+
+footer {
     color: #fefefe;
-    font-size: 14px;
+    font-size: 1em;
     display: flex;
     flex-direction: column;
     text-align: center;
-    box-shadow: 2px -2px 5px #999;
+    padding-top: 20px;
 }

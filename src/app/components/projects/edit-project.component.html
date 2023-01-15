@@ -1,0 +1,41 @@
+<div class="container-fluid" *ngIf="projects">
+    <div class="row">
+        <div class="title">
+            <h1>Edit Project</h1>
+        </div>
+        <div class="editProject">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="projectName"><b>Project Name</b></label>
+                    <input type="text" class="form-control" id="projectName" name="projectName" [(ngModel)]="projects.projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectInfo"><b>Project Info</b></label>
+                    <textarea type="text" class="form-control" id="projectInfo" name="projectInfo" [(ngModel)]="projects.projectInfo" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectDate"><b>Project Date</b></label>
+                    <input type="text" class="form-control" id="projectDate" name="projectDate" [(ngModel)]="projects.projectDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectSource"><b>Project Source</b></label>
+                    <input type="text" class="form-control" id="projectSource" name="projectSource" [(ngModel)]="projects.projectSource" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectImg"><b>Project Image</b></label>
+                    <input type="file" class="form-control" id="projectImg" name="projectImg" (ngModel)="projects.projectImg" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+                </div>
+                <br>
+                <div>
+                    <img [src]="projects.projectImg" width="200px" alt="Project Image" *ngIf='projectImageService.url == ""'>
+                    <img [src]="projectImageService.url" width="200px" alt="Project Image" *ngIf='projectImageService.url != ""'>
+                </div>
+            <br>
+                <div>
+                    <button class="btn btn-dark">Save</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
+            </form>
+        </div>
+   </div>
+</div>

@@ -1,8 +1,81 @@
-h1{
+h1 {
+    display: inline-block;
+    background-color: #4b3e62;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    /*box-shadow:  5px 5px 5px black;*/
+}
+
+h2 {
+    display: inline;
+}
+
+h4 {
+    color: #fff;
+}
+
+.title {
+    padding: 0;
+    margin: auto;
+    max-width: 95%;
+    margin-top: 20px;
+}
+
+.newSkill {
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.row{
-    background-color: #a1b5cb;
-    padding: 20px;
+.skillsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.skillsContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills {
+    padding: 30px;
+    background-color: #4b3e62;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    /*box-shadow:  5px 5px 5px black;*/
+    margin: auto;
+    max-width: 95%;
+}
+
+.circleProgress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editDeleteButtons {
+    height: 3em;
+    width: 3em;
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.editDeleteButtons .btn-light {
+    margin-right: 15px;
+}
+
+.bi-pencil-square {
+    font-size: 21.5px;
+}
+
+.bi-trash3 {
+    font-size: 21.5px;
 }

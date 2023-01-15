@@ -14,6 +14,7 @@ export class SkillsComponent implements OnInit {
   constructor(private skillsService: SkillsService, private tokenService: TokenService) { }
  
   isLogged = false;
+  isAdmin = false;
   
   ngOnInit(): void {
     this.addSkill();
@@ -22,25 +23,30 @@ export class SkillsComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    if(this.tokenService.getAuthorities().length == 2) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   addSkill(): void{
-    this.skillsService.list().subscribe(
-      data => {
-        this.skills = data;
-      }
-    );
+    this.skillsService.list().subscribe(data => { this.skills = data; });
   }
 
   deleteSkill(id: number){
-    if(id != undefined){
-      this.skillsService.delete(id).subscribe(
-        data => {
-          this.addSkill();
-        }, err => {
-          alert("Couldn't delete skill");
-        }
-      );
+    const response = confirm ("Are you sure u want to delete this skill?");
+    if (response == true) {
+      if(id != undefined){
+        this.skillsService.delete(id).subscribe(
+          data => {
+            this.addSkill();
+          }, err => {
+            alert("Couldn't delete skill");
+          }
+        );
+        alert("Skill deleted succesfully");
+      }
     }
   }
 }

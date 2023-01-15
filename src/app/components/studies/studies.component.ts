@@ -14,6 +14,7 @@ export class StudiesComponent implements OnInit {
   constructor(private studiesService: StudiesService, private tokenService: TokenService) { }
 
   isLogged = false;
+  isAdmin = false;
 
   ngOnInit(): void {
     this.addStudy();
@@ -22,6 +23,11 @@ export class StudiesComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    if(this.tokenService.getAuthorities().length == 2) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   addStudy(): void {
@@ -29,14 +35,18 @@ export class StudiesComponent implements OnInit {
   }
   
   deleteStudy(id?: number){
-    if(id != undefined){
-      this.studiesService.delete(id).subscribe(
-        data => {
-          this.addStudy();
-        }, err => {
-          alert("Couldn't delete Study");
-        }
-      )
+    const response = confirm ("Are you sure u want to delete this study?");
+    if (response == true) {
+      if(id != undefined){
+        this.studiesService.delete(id).subscribe(
+          data => {
+            this.addStudy();
+          }, err => {
+            alert("Couldn't delete Study");
+          }
+        );
+        alert("Study deleted succesfully");
+      }
     }
   }
 }

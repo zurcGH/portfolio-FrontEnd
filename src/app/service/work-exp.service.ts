@@ -8,7 +8,6 @@ import { WorkExp } from "../model/work-exp";
     providedIn: 'root'
 })
 export class WorkExpService {
-    //workExpURL = 'http://localhost:8080/workexp/';
     workExpURL = environment.URL + '/workexp/';
 
     constructor(private httpClient: HttpClient) { }

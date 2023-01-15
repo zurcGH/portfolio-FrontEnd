@@ -1,0 +1,50 @@
+.row {
+    background-color: #a3a1cb;
+    margin: 0px;
+    min-height: 100%;
+    padding: 2em;
+}
+
+h1 {
+    display: inline-block;
+    background-color: #fff;
+    color: black;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+}
+
+.form-group {
+    padding: 10px;
+    margin: 50px;
+}
+
+label {
+    padding-bottom: 0.5em;
+    
+}
+
+.skills {
+    padding: 30px;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow:  5px 5px 5px black;
+}
+
+.title {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    text-align: center;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+img {
+    text-align: center;
+}

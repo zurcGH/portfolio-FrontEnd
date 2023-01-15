@@ -1,18 +1,36 @@
-<div class="container" *ngIf="workExp">
-    <div class="row">
-        <div>
+<div class="container-fluid">
+    <div class="row" *ngIf="workExp">          
+        <div class="title">
+            <h1>Edit Work Experience</h1>
+        </div>
+        <div class="workExp">
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="workName">WorkName</label>
+                    <label for="workName"><b>Work Name</b></label>
                     <input type="text" class="form-control" id="workName" name="workName" [(ngModel)]="workExp.workName" required>
                 </div>
                 <div class="form-group">
-                    <label for="workInfo">WorkInfo</label>
-                    <input type="text" class="form-control" id="workInfo" name="workInfo" [(ngModel)]="workExp.workInfo" required>
+                    <label for="workInfo"><b>Work Info</b></label>
+                    <textarea type="text" class="form-control" id="workInfo" name="workInfo" [(ngModel)]="workExp.workInfo" required></textarea>
                 </div>
-                <button class="btn btn-light">
-                    UpdateWorkExp
-                </button>
+                <div class="form-group col-sm-12 col-md-6 col-lg-6 dateinit">
+                    <label for="workDate"><b>Work Date</b></label>
+                    <input type="text" class="form-control" id="workDate" name="workDate" [(ngModel)]="workExp.workDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="workImg"><b>Work Image</b></label>
+                    <input type="file" class="form-control" id="workImg" name="workImg" (ngModel)="workExp.workImg" (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                </div>
+            <br>
+                <div>
+                    <img [src]="workExp.workImg" width="200px" alt="Work Image" *ngIf='workExpImageService.url == ""'>
+                    <img [src]="workExpImageService.url" width="200px" alt="Work Image" *ngIf='workExpImageService.url != ""'>
+                </div>
+            <br>
+                <div>
+                    <button class="btn btn-light">Save</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
             </form>
         </div>
     </div>

@@ -10,7 +10,6 @@ import { NewUser } from "../model/new-user";
     providedIn: 'root'
 })
 export class AuthService {
-    //authURL = 'http://localhost:8080/auth/';
     authURL = environment.URL + '/auth/';
 
     constructor(private httpClient: HttpClient) { }

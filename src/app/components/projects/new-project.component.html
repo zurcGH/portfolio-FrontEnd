@@ -1,0 +1,40 @@
+<div class="container-fluid">        
+    <div class="row">
+        <div class="title">
+            <h1>New Project</h1>
+        </div>
+        <div class="newProject">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="projectName"><b>Project Name</b></label>
+                    <input type="text" class="form-control" id="projectName" name="projectName" [(ngModel)]="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectInfo"><b>Project Info</b></label>
+                    <textarea type="text" class="form-control" id="projectInfo" name="projectInfo" [(ngModel)]="projectInfo" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectDate"><b>Project Date</b></label>
+                    <input type="text" class="form-control" id="projectDate" name="projectDate" [(ngModel)]="projectDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectSource"><b>Project Source</b></label>
+                    <input type="text" class="form-control" id="projectSource" name="projectSource" [(ngModel)]="projectSource" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectImg"><b>Project Image</b></label>
+                    <input type="file" class="form-control" id="projectImg" name="projectImg" (ngModel)="projectImg" (change)="uploadImage($event)" accept=".png, .jpg, .jpeg">
+                </div>
+                <br>
+                <div>
+                    <img [src]="projectImageService.url" width="200px" alt="projectImg" *ngIf='projectImageService.url != ""'>
+                </div>
+            <br>
+                <div>
+                    <button class="btn btn-light">Add</button>
+                    <button class="btn btn-danger" routerLink="">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

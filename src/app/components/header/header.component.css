@@ -1,7 +1,3 @@
-div{
-    background-color: #a1b5cb;
-}
-
 .part1{
     display: flex;
     justify-content: space-between;
@@ -30,7 +26,13 @@ div{
     height: auto;
 }
 
-/*Phone*/
+@media (max-width: 1024px) {
+    .social img{
+        width: 42.5px;
+        margin-left: 5px;
+    }
+}
+
 @media (max-width: 575px) {
     .part1{
         flex-direction: column;
